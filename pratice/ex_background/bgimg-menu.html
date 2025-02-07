@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배경이미지, 메뉴바 연습문제</title>
+    <style>
+        /* opacity: 투명도 0 ~ 1 값 넣기   */
+        #menubar ul li a{ color: white; text-decoration: none;}
+        #menubar ul {margin: 0; padding: 0; padding-left: 5%; width: 100%; margin-top: 2%; margin-left: 1%;
+                     background-color: black; opacity: 0.7;}
+        #menubar ul li {display: inline; list-style-type: none; 
+                        left: 15px; right: 15px; padding: 0px 15px; }
+        #menubar ul li a:hover{ color: violet;}
+
+        body, html{
+            margin: 0; padding: 0; /*기본 여백, 패딩 제거*/
+        }
+        .fullscreen {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw;   /*뷰포트 너비: 모니터 화면 꽉 채우기*/
+            height: 100vh;
+            background-image: url(../week1/img/bali.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <div id="menubar" class="fullscreen">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Kuta</a></li>
+            <li><a href="#">Seminyak</a></li>
+            <li><a href="#">Ubud</a></li>
+        </ul>
+
+    </div>
+</body>
+</html>

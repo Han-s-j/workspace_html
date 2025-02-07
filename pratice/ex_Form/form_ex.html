@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼태그 문제1</title>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script>
+        function fn_addr() {
+            new daum.Postcode({
+                oncomplete: function (data) {
+                    console.log(data);
+                    document.getElementById('address').value = data.address;
+                }
+
+            }).open();
+        }
+    </script>
+</head>
+
+<body>
+    <h2>회원 가입 폼</h2>
+    <h5>아래 정보를 입력하여 회원 가입을 완료하세요.</h5>
+    <hr>
+
+    <form action="">
+        <fieldset>
+            <legend>개인 정보</legend>
+            이름: <input type="text" name="" id="" placeholder="홍길동" required>
+            <br>
+    </form> <br>
+    <form action="">
+        생년월일 : <input type="date">
+    </form><br>
+    성별:
+    <form action="">
+        <label for="sex1">
+            <input  type="radio" id="sex1" value="a" name="sex"> 남성
+        </label>
+        <label for="sex2">
+            <input type="radio" id="sex2" value="b" name="sex" checked>여성
+        </label>
+        <label for="sex3">
+            <input  type="radio" id="sex3" value="c" name="sex">기타
+        </label>
+    </form>
+    <br>
+    </fieldset>
+    <form action="">
+        <fieldset>
+            <legend>연락처 정보</legend>
+            이메일 : <input type="email" required placeholder="example@example.com"><br><br>
+            전화번호 : <input type="tel" placeholder="010-1234-5678" required> <br><br>
+            주소 :
+            <br><textarea readonly cols="40" rows="5" onclick="fn_addr();" type="text" id="address"
+                placeholder="주소를 입력하세요."></textarea> <br><br>
+        </fieldset>
+    </form>
+    <form action="">
+        <fieldset>
+            <legend>계정 정보</legend>
+            사용자명: <input type="text" name="" id="" required><br><br>
+            비밀번호: <input type="password" required> <br><br>
+            비밀번호 확인: <input type="password" required> <br><br>
+            보안 질문: <select name="">
+                <option value="1">학창시절 별명은?</option>
+                <option value="2" selected>가장 좋아하는 반려동물 이름은?</option>
+                <option value="3">가장 감명깊게 읽은 책은?</option>
+            </select><br><br>
+            보안 답변: <input type="text" name="" id="" required><br><br>
+        </fieldset>
+    </form>
+    <form action="">
+        <fieldset>
+            <legend>동의</legend>
+            <input type="checkbox" value="1" name="chk"> 이용 약관에 동의합니다.
+            <br>
+            <input type="checkbox" value="2" name="chk"> 개인 정보 보호 정책에 동의합니다.
+            <br><br>
+        </fieldset>
+    </form>
+    <button type="reset">가입하기</button>
+    <button type="reset">초기화</button>
+</body>
+
+</html>

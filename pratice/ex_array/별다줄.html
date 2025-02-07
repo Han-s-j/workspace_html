@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>별다줄</title>
+</head>
+<body>
+    <h3>사용자에게 문장을 입력받아 별다줄 해주세요.</h3>
+    <hr>
+    <script>
+        // ex) 갑자기 분위기 싸함 -> 갑분싸 출력
+        // 1. 사용자 문자 입력 받기
+        let inputstr2 = prompt("텍스트를 입력하세요", "갑자기 분위기 싸함");
+        // 2. 문장 -> 단어 배열생성
+        let inputarr2 = inputstr2.split("");
+        let str = " ";
+        for(let v of arr){
+            str +=v[0];
+        }
+        // document.write("입력한 텍스트를 별다줄하면 ");
+        // for(i = 0; i <= inputarr2.length; i++){
+        //     arrfirst = inputarr2[i][0];
+        //     document.write(arrfirst);
+        // } 
+        
+        document.write("별다줄하면 " + str +"입니다.");
+            
+        // 4. 출력
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript object</title>
+</head>
+<body>
+    <script>
+        let obj = {} ; // 비어있는 객체 선언
+        //  let obj = new Object(); // 위와 동일함.
+        obj.nm = '팽수';
+        obj.age = 10;
+        obj.message = function(){
+            alert("안녕하세요^^");
+        }
+        console.log(obj);
+        let keys = Object.keys(obj);    // key만 리턴
+        console.log("key:", keys);
+        let value = Object.values(obj);     // value만 리턴
+        console.log("value", value);
+        // 객체 for문
+        for(let key in obj){
+            console.log("for문 key:", key);
+            console.log("for문 val:", obj[key]);
+        }
+        obj.message();
+
+        obj['hp'] = "01096101234"   // 생성 
+        obj.addr = "대전 둔산동";
+        obj.hp = '0422231234'       // 변경 obj['hp']와 obj.hp 동일함
+        console.log(obj);
+        
+    </script>
+</body>
+</html>
