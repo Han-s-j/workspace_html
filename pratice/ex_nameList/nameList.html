@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./nameList.css">
+    
+</head>
+<body>
+    <div id="container">
+        <h1>참가 신청서</h1>
+        <form id="myForm">
+            <input type="text" id="userName" placeholder="이름을 입력하세요" required>
+            <button type="button" onclick="fn_register()">신청</button>
+            <div id="nameList">
+            </div>
+        </form>
+        <hr>
+    </div>
     <script>
         /*
             1단계 버튼 클릭시 input에 입력된 value 가져오기
@@ -12,40 +25,31 @@
             3단계 span tag 생성 span태그 클릭시 삭제 이벤트 적용
             4단계 p 와 span 태그 결합하여 nameList 에 첫 요소에 insert 
         */
-        function fn_inputvalue() {
+       document.getElementById("myForm").addEventListener('keypress', function(e) {
+            if(e.key == 'Enter'){
+                e.preventDefault(); //디폴트 행동 취소 (디폴드 행동은 submit)
+                fn_register();
+            }
+        });
+        function fn_register() {
             //1단계 버튼 클릭시 input에 입력된 value 가져오기
                 let userInput = document.getElementById('userName');   //동객체여서 .value 해야함.
-                console.log(userInput);
                 let P = document.createElement('p');
                 p.innerHTML = userInput.value;
-                console.log(p);
-                let span = document.getElementById('span');
                 let div = document.getElementById('nameList');
             //2단계 p tag 생성 innerHTM에 1단계에서 가져온 값 넣기(참가자 입력 이름)
-                div.insertBefore(p, div.childNodes[0]);
                 
+                let btn = document.createElement("span");
+                btn.innerHTML = "X";
+                btn.setAttribute("Class", "del");
+                btn.onclick = function() {
+                    //조상에서 부모 삭제(div)
+                    this.parentElement.parentElement.removeChild(this.parentElement);
+                }
+                p.appendChild(btn);
+                div.insertBefore(p, div.childNodes[0]);
                 userInput.value = '';
-
-
             }
-            
-
-        
-
-    </script>
-</head>
-<body>
-    <div id="container">
-        <h1>참가 신청서</h1>
-        <form id="myForm">
-            <input type="text" id="userName" placeholder="이름을 입력하세요" required>
-            <button type="button" onclick="fn_inputvalue()">신청</button>
-            <div id="nameList">
-            </div>
-        </form>
-        <hr>
-    </div>
-    <script>
     </script>
 </body>
 </html>
