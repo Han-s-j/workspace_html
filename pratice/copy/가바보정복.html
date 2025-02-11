@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body { text-align: center}
+        span { font-size: 30px;}
+        #vs_id {font-size: 100px; color: red;}
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위바위보 정복</title>
+    <script>
+        document.write("<h1>컴퓨터 가위, 바위, 보 맞추기</h1>");
+        let game = prompt("가위, 바위, 보 중 선택하세요?", "바위");
+        // Math.ceil 올림
+        let com = Math.ceil(Math.random() * 3);
+        console.log(com);
+        let userNum;
+        console.log(userNum);
+        // 1. 사용자 입력 가위 ->1,  바위 ->2,  보 -> 3 으로 변경
+        switch (game) {
+            case "가위": userNum = 1;
+                break;
+            case "바위": userNum = 2;
+                break;
+            case "보": userNum = 3;
+                break;
+            default: alert("잘못 입력하셨습니다 ⚠️")
+                location.reload(); //f5 새로고침
+        }
+        console.log("컴퓨터:", com, "사용자:", userNum);
+        // 2. 컴퓨터 랜덤값과 사용자 입력에 해당하는 이미지 출력
+        document.write('<div>');
+        document.write('<span>');
+        document.write('<span>');
+        document.write('com <img src="/pratice/ex_RockScissorsPaper/images/math_com_' + com + '.jpg" alt="">');
+        document.write('</span>');
+        document.write(' VS<img src="/pratice/ex_RockScissorsPaper/images/math_user_' + userNum + '.jpg" alt=""> user');
+        document.write('</span>');
+        document.write('</span>');
+        document.write('</div>');
+        // 비기는 상황
+        if(userNum == com){
+            document.write("<img src='/pratice/ex_RockScissorsPaper/images/game_3.jpg'>");
+        // 이기는 상황 && : And || : or
+        }else if( (userNum == 1 && com == 3)
+                ||(userNum  == 2 && com ==1)
+                ||(userNum == 3 && com ==2) ){
+                document.write("<img src='/pratice/ex_RockScissorsPaper/images/game_1.jpg'>");
+        // 지는 상황
+        }else{
+            document.write("<img src='/pratice/ex_RockScissorsPaper/images/game_2.jpg'>")
+        }
+    </script>
+</head>
+<body>
+</body>
+
+</html>
