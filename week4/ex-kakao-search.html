@@ -23,18 +23,37 @@
                     ,headers :{"Authorization":"KakaoAK "+API_KEY}
                     ,success : function(res){
                         //1.검색 결과 배열가져오기 (이전 요소가 결과가 있다면 비우기)
+                        console.log(res);
+                        
                         let arr = res['documents'];
+                        let str = '';
+                        $("#content").empty(); // 한 번 비우기
+                        arr.forEach(function(v, i){
+                            console.log(i,v);
+                            let title = v['title'];
+                            let contents = v['contents'];
+                            let url = v['url'];
+                            str += "<h4>" + title + "</h4>";
+                            str += "<p>" + contents + "</p>";
+                            str += "<a href='" + url + "'>바로가기</a>";
+                        });
+                        $("#content").append(str);
                         //2.반복해서 검색결과 각 요소에 접근
                         //3.각 요소의 key로 원하는 value 가져오기
                         //4. tittle, url, contents 를 원하는 태그로 감싸주고
                         //5. content div에 append 
                         //<li><a href="http://www.naver.com" target="_blank">네이버</a></li>
-                        for(i=0; i<50; i++){
-                            console.log(arr[i]['url']);
-                            $("#content").append(arr[i]['tittle']);
-                            $("#content").append(arr[i]['<li><a href= url >링크</a></li>']); 
-                            $("#content").append(arr[i]['contents']);
-                        }
+                        // str += '<td>' + arr[i]['market'] + '</td>';
+                        // console.log(arr[0]['url']);
+                        // for(i=0; i<50; i++){
+                        //     console.log(arr[i]['url']);
+                        //     console.log(arr[i]['tittle']);
+                        //     console.log(arr[i]['contents']);
+                            
+                        //     $("#content").append(arr[i]+'<h1>'+['tittle']+'</h1>');
+                        //     $("#content").append(arr[i]+'<a href="'+['url']+'" target="_blank">링크입니다.</a>'); 
+                        //     $("#content").append(arr[i]['contents']);
+                        // }
                     }
                     ,error : function(err){
                         console.log(err);
