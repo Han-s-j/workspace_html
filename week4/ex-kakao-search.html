@@ -10,7 +10,7 @@
         $(document).ready(function(){
             $("#btn").click(function(){
                 //  let sample = "grok3";
-                 let sample = ($(search).val());
+                let sample = ($(search).val());
                 //  $("#search-main").append(sample);
 
                 $.ajax({
@@ -43,17 +43,12 @@
                         //4. tittle, url, contents 를 원하는 태그로 감싸주고
                         //5. content div에 append 
                         //<li><a href="http://www.naver.com" target="_blank">네이버</a></li>
-                        // str += '<td>' + arr[i]['market'] + '</td>';
-                        // console.log(arr[0]['url']);
-                        // for(i=0; i<50; i++){
-                        //     console.log(arr[i]['url']);
-                        //     console.log(arr[i]['tittle']);
-                        //     console.log(arr[i]['contents']);
-                            
-                        //     $("#content").append(arr[i]+'<h1>'+['tittle']+'</h1>');
-                        //     $("#content").append(arr[i]+'<a href="'+['url']+'" target="_blank">링크입니다.</a>'); 
-                        //     $("#content").append(arr[i]['contents']);
-                        // }
+                        for(i=0; i<50; i++){
+                            console.log(arr[i]['url']);
+                            $("#content").append(arr[i]['tittle']);
+                            $("#content").append(arr[i]['<li><a href= url >링크</a></li>']); 
+                            $("#content").append(arr[i]['contents']);
+                        }
                     }
                     ,error : function(err){
                         console.log(err);
